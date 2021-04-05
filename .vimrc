@@ -22,6 +22,11 @@ au BufNewFile,BufRead *.py
     \ set autoindent
     \ set fileformat=unix
 
+let python_highlight_all=1
+syntax on
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
 " YAML intendation
 au BufNewFile,BufRead *.yml,*.yaml
     \ set expandtab
@@ -43,7 +48,15 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
-
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Python autocomplete
 " need: https://github.com/ycm-core/YouCompleteMe#mac-os-x-super-quick-installation
 Bundle 'Valloric/YouCompleteMe'
