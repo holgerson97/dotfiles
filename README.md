@@ -8,7 +8,7 @@ development environment into something marginally better than chaos.
 Here's how you can install these masterpieces, assuming you really want to:
 
 1. Clone the Repository
-git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
+git clone https://github.com/holgerson97/dotfiles.git ~/.dotfiles
 Because copying random files into your home directory is always a great idea.
 2. Run the Setup ScriptNavigate to the dotfiles directory and run the setup script, because nothing says "I'm ready
 for anything" like executing unverified scripts.
