@@ -56,21 +56,18 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
+# Setup Tailscale CLI mode, only applies to MacOs
 alias tailscale="/Applications/Tailscale.localized/Tailscale.app/Contents/MacOS/Tailscale"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/nilscarstensen/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nilscarstensen/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/nilscarstensen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nilscarstensen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-
-[ -f ~/.variables ] && source ~/.variables
-[ -f ~/.aliasrc ] && source ~/.aliasrc
+[ -f ~/.config/.variables ] && source ~/.config/.variables
+[ -f ~/.config/.aliasrc ] && source ~/.config/.aliasrc
 [ -f ~/.config/.tmux_sessionrc ] && source ~/.config/.tmux_sessionrc
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Use GNU Sed instead of the MacOS preinstalled
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # vi mode
