@@ -32,6 +32,10 @@ zinit light joshskidmore/zsh-fzf-history-search
 
 # Load completions
 autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
@@ -52,16 +56,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -79,4 +73,17 @@ if [ -f '/Users/nilscarstensen/Downloads/google-cloud-sdk/completion.zsh.inc' ];
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 
-[[ -s "/Users/nilscarstensen/.gvm/scripts/gvm" ]] && source "/Users/nilscarstensen/.gvm/scripts/gvm"
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
