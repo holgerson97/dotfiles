@@ -8,6 +8,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
     'jonarrien/telescope-cmdline.nvim',
+    "ThePrimeagen/harpoon",
   },
 
   config = function()
@@ -30,6 +31,7 @@ return {
 
     telescope.load_extension("fzf")
     telescope.load_extension('cmdline')
+    -- telescope.load_extension('harpoon')
   end,
 }
 
