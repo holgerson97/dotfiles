@@ -66,6 +66,7 @@ alias tailscale="/Applications/Tailscale.localized/Tailscale.app/Contents/MacOS/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH=$PATH:/opt/homebrew/bin
 
 # Use GNU Sed instead of the MacOS preinstalled
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -84,3 +85,4 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+export REVIEW_BASE=main
