@@ -25,6 +25,24 @@ return {
       },
     }
 
+    -- Clangd
+    lspconfig.clangd.setup({
+      on_attach = lsp_attach,
+      capabilities = capabilities,
+      cmd = { "/usr/bin/clangd" },
+      filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+      root_dir = lspconfig.util.root_pattern(
+        '.clangd'
+        ,'.clang-tidy'
+        ,'.clang-format'
+        ,'compile_commands.json'
+        ,'compile_flags.txt'
+        ,'configure.ac'
+        ,'.git'
+        ),
+      single_file_support = true,
+    })
+
     lspconfig.terraformls.setup{}
     vim.api.nvim_create_autocmd({"BufWritePre"}, {
       pattern = {"*.tf", "*.tfvars"},
@@ -33,7 +51,7 @@ return {
       end,
     })
 
-    lspconfig.ruff_lsp.setup{
+    lspconfig.ruff.setup{
       on_attach = on_attach,
       capabilities = capabilities,
       filetypes = {"python"},

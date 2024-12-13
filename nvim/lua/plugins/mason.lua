@@ -30,7 +30,7 @@ return {
         "gopls",
         "lua_ls",
         "helm_ls",
-        "ruff_lsp",
+        "ruff",
       },
     })
 
@@ -41,6 +41,7 @@ return {
         "pyright",
         "pylint",
         "gofumpt",
+        "clangd",
       },
     })
   end,
