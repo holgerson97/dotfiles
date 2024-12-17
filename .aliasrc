@@ -1,0 +1,19 @@
+alias vim="nvim"
+alias cat="bat"
+alias ls="ls -laHF --color"
+alias ll="ls -laHF --color"
+alias weather="curl wttr.in"
+alias ..="cd .."
+
+alias gitops="cd ~/Documents/repositories/roclub/gitops/"
+alias gor="cd ~/go/src/github.com/roclub/"
+alias rr="cd ~/Documents/repositories/roclub/"
+
+source <(kubectl completion zsh)
+
+alias cls=clear
+alias k=kubectl
+alias k9s="k9s --logoless --crumbsless -c context"
+
+alias go@1.21="/opt/homebrew/opt/go@1.21/bin/go"
+alias go@1.22="/opt/homebrew/opt/go@1.22/bin/go"
