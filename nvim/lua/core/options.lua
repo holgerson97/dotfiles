@@ -55,3 +55,6 @@ opt.background = "dark" -- colorschemes that can be light or dark will be made d
 -- Make Scrolling feel more natural
 opt.colorcolumn = "80"
 opt.scrolloff = 8
+
+-- Required for Obsidian Plugin
+opt.conceallevel = 2
