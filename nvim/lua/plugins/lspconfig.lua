@@ -30,7 +30,7 @@ return {
       on_attach = lsp_attach,
       capabilities = capabilities,
       cmd = { "/usr/bin/clangd" },
-      filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+      filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
       root_dir = lspconfig.util.root_pattern(
         '.clangd'
         ,'.clang-tidy'
