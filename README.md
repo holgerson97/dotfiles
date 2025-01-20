@@ -3,6 +3,15 @@
 Welcome to my dotfiles repository! This is the pinnacle of configuration files, designed to transform your
 development environment into something marginally better than chaos.
 
+## Table of Contents
+
+## Features
+### Aerospace
+Aerospace is an i3 like tiling window manager exclusively for MacOS.
+The configuration features vim like bindings, working with multiple monitors
+and giving a complete HotKey-based workflow for mulitple workspaces.
+
+
 ## Installation
 
 Here's how you can install these masterpieces, assuming you really want to:
