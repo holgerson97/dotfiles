@@ -17,3 +17,9 @@ alias k9s="k9s --logoless --crumbsless -c context"
 
 alias go@1.21="/opt/homebrew/opt/go@1.21/bin/go"
 alias go@1.22="/opt/homebrew/opt/go@1.22/bin/go"
+
+kgd() { kubectl get deployments -owide "$@"; }
+kgp() { kubectl get pods -owide "$@"; }
+kgs() { kubectl get service -owide "$@"; }
+kgi() { kubectl get ingress -owide "$@"; }
+kgn() { kubectl get nodes -owide "$@"; }
