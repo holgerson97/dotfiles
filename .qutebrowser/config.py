@@ -193,3 +193,7 @@ c.tabs.width = '30%'
 # "px" suffix.
 # Type: String
 c.fonts.default_size = '15pt'
+
+# Keybindings
+config.bind('tta', 'set tabs.show always')
+config.bind('tts', 'set tabs.show switching')
