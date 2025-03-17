@@ -1,6 +1,8 @@
-# Install NeoVim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
+function install_brew() {
+  if [[ ! -f "/opt/homebrew/bin/brew" ]]; then
+    echo "Installing Brew ..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi  
+}
 
-
+install_brew
