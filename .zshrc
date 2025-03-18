@@ -30,7 +30,6 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-echo "Loading Plugins"
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -68,6 +67,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Use GNU Sed instead of the MacOS preinstalled
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
