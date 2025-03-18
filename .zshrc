@@ -24,6 +24,13 @@ else
   export EDITOR='vim'
 fi
 
+# Add in Powerlevel10k
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+echo "Loading Plugins"
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -36,12 +43,6 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
-
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # History
 HISTSIZE=5000
@@ -85,4 +86,4 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-export REVIEW_BASE=main
+source <(fzf --zsh)
