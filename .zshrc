@@ -87,3 +87,5 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 source <(fzf --zsh)
+
+export GPG_TTY=$(tty)

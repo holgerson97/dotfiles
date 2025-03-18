@@ -1,9 +1,9 @@
-# This is Git's per-user configuration file.
+#gpg --list-keys --keyid-format short This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
 	name = Nils Carstensen
 	email = me@nils-carstensen.de
-	signingkey = 1F25989330BF84C3
+	signingkey = 686914AF
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
