@@ -12,17 +12,6 @@ return {
     local WIDTH_RATIO = 0.5   -- You can change this too
 
     nvimtree.setup({
-      opts = {
-        ensure_installed = { "go", "python", "vim", "vimdoc", "c", "query" },
-      },
-      
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
-
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
-
       filters = {
         dotfiles = false,
         exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
