@@ -56,9 +56,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Setup Tailscale CLI mode, only applies to MacOs
-alias tailscale="/Applications/Tailscale.localized/Tailscale.app/Contents/MacOS/Tailscale"
-
 [ -f ~/.config/.variables ] && source ~/.config/.variables
 [ -f ~/.config/.aliasrc ] && source ~/.config/.aliasrc
 [ -f ~/.config/.tmux_sessionrc ] && source ~/.config/.tmux_sessionrc
@@ -68,6 +65,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/bin/tailscale
 
 # Use GNU Sed instead of the MacOS preinstalled
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
