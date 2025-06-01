@@ -66,6 +66,12 @@ config.set('content.cookies.accept', 'all', 'devtools://*')
 # Type: String
 config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io/*')
 
+# Value to send in the `DNT` header. When this is set to true,
+# qutebrowser asks websites to not track your identity. If set to null,
+# the DNT header is not sent at all.
+# Type: Bool
+c.content.headers.do_not_track = True
+
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
 # The underlying WebKit version (set to a fixed value   with
@@ -98,6 +104,40 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # Type: FormatString
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:133.0) Gecko/20100101 Firefox/133.0', 'https://accounts.google.com/*')
 
+# Enable the ad/host blocker
+# Type: Bool
+c.content.blocking.enabled = True
+
+# Block subdomains of blocked hosts. Note: If only a single subdomain is
+# blocked but should be allowed, consider using
+# `content.blocking.whitelist` instead.
+# Type: Bool
+c.content.blocking.hosts.block_subdomains = True
+
+# Which method of blocking ads should be used.  Support for Adblock Plus
+# (ABP) syntax blocklists using Brave's Rust library requires the
+# `adblock` Python package to be installed, which is an optional
+# dependency of qutebrowser. It is required when either `adblock` or
+# `both` are selected.
+# Type: String
+# Valid values:
+#   - auto: Use Brave's ABP-style adblocker if available, host blocking otherwise
+#   - adblock: Use Brave's ABP-style adblocker
+#   - hosts: Use hosts blocking
+#   - both: Use both hosts blocking and Brave's ABP-style adblocker
+c.content.blocking.method = 'auto'
+
+# List of URLs to ABP-style adblocking rulesets.  Only used when Brave's
+# ABP-style adblocker is used (see `content.blocking.method`).  You can
+# find an overview of available lists here:
+# https://adblockplus.org/en/subscriptions - note that the special
+# `subscribe.adblockplus.org` links aren't handled by qutebrowser, you
+# will instead need to find the link to the raw `.txt` file (e.g. by
+# extracting it from the `location` parameter of the subscribe URL and
+# URL-decoding it).
+# Type: List of Url
+c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt']
+
 # Load images automatically in web pages.
 # Type: Bool
 config.set('content.images', True, 'chrome-devtools://*')
@@ -105,6 +145,18 @@ config.set('content.images', True, 'chrome-devtools://*')
 # Load images automatically in web pages.
 # Type: Bool
 config.set('content.images', True, 'devtools://*')
+
+# Allow JavaScript to read from or write to the clipboard. With
+# QtWebEngine, writing the clipboard as response to a user interaction
+# is always allowed. On Qt < 6.8, the `ask` setting is equivalent to
+# `none` and permission needs to be granted manually via this setting.
+# Type: JSClipboardPermission
+# Valid values:
+#   - none: Disable access to clipboard.
+#   - access: Allow reading from and writing to the clipboard.
+#   - access-paste: Allow accessing the clipboard and pasting clipboard content.
+#   - ask: Prompt when requested (grants 'access-paste' permission).
+config.set('content.javascript.clipboard', 'access', 'github.com')
 
 # Enable JavaScript.
 # Type: Bool
@@ -180,14 +232,28 @@ c.tabs.position = 'left'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'switching'
+c.tabs.show = 'always'
+
+# Format to use for the tab title. The following placeholders are
+# defined:  * `{perc}`: Percentage as a string like `[10%]`. *
+# `{perc_raw}`: Raw percentage, e.g. `10`. * `{current_title}`: Title of
+# the current web page. * `{title_sep}`: The string `" - "` if a title
+# is set, empty otherwise. * `{index}`: Index of this tab. *
+# `{aligned_index}`: Index of this tab padded with spaces to have the
+# same   width. * `{relative_index}`: Index of this tab relative to the
+# current tab. * `{id}`: Internal tab ID of this tab. * `{scroll_pos}`:
+# Page scroll position. * `{host}`: Host of the current web page. *
+# `{backend}`: Either `webkit` or `webengine` * `{private}`: Indicates
+# when private mode is enabled. * `{current_url}`: URL of the current
+# web page. * `{protocol}`: Protocol (http/https/...) of the current web
+# page. * `{audio}`: Indicator for audio/mute status.
+# Type: FormatString
+c.tabs.title.format = '{audio}{index}: {current_url}'
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
 # Type: PercOrInt
 c.tabs.width = '20%'
-
-c.tabs.title.format = '{audio}{index}: {current_url}'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
@@ -196,6 +262,8 @@ c.tabs.title.format = '{audio}{index}: {current_url}'
 # Type: String
 c.fonts.default_size = '15pt'
 
-# Keybindings
+# Bindings for normal mode
+config.unbind('D')
+config.unbind('d')
 config.bind('tta', 'set tabs.show always')
 config.bind('tts', 'set tabs.show switching')
