@@ -22,7 +22,7 @@ return {
       workspaces = {
         {
           name = "private",
-          path = "~/Documents/private",
+          path = "~/Documents/vaults/private/",
         },
       },
       daily_notes = {
