@@ -2,10 +2,8 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-
     -- import lspconfig plugin
     local util = require "lspconfig/util"
-
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     vim.lsp.config("gopls", {
@@ -25,20 +23,15 @@ return {
         },
       },
     })
-
-    vim.lsp.config("tsserver", {
-      on_attach = on_attach,
-      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-      cmd = { "typescript-language-server", "--stdio" }
-    })
+    vim.lsp.enable({"gopls"})
 
     -- Clangd
-    vim.lsp.config("clangd", ({
+    vim.lsp.config("clangd", {
       on_attach = lsp_attach,
       capabilities = capabilities,
       cmd = { "/usr/bin/clangd" },
       filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-      root_dir = vim.lsp.config.util.root_pattern(
+      root_dir = util.root_pattern(
         '.clangd'
         ,'.clang-tidy'
         ,'.clang-format'
@@ -48,7 +41,25 @@ return {
         ,'.git'
         ),
       single_file_support = true,
-    }))
+    })
+    vim.lsp.enable({"clangd"})
+
+    vim.lsp.config("terraformls", {})
+    vim.lsp.enable({"terraformls"})
+
+    vim.api.nvim_create_autocmd({"BufWritePre"}, {
+      pattern = {"*.tf", "*.tfvars"},
+      callback = function()
+        vim.lsp.buf.format()
+      end,
+    })
+
+    vim.lsp.config("ruff", {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = {"python"},
+    })
+    vim.lsp.enable({"ruff"})
 
     -- setup helm-ls
     vim.lsp.config("helm_ls", {
@@ -60,5 +71,7 @@ return {
         }
       }
     })
+    vim.lsp.enable({"helm_ls"})
+
   end,
 }
