@@ -60,12 +60,12 @@ setopt hist_find_no_dups
 [ -f ~/.config/.aliasrc ] && source ~/.config/.aliasrc
 [ -f ~/.config/.tmux_sessionrc ] && source ~/.config/.tmux_sessionrc
 
-export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/bin/tailscale
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Use GNU Sed instead of the MacOS preinstalled
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -86,4 +86,23 @@ bindkey '^e' edit-command-line
 
 source <(fzf --zsh)
 
-export GPG_TTY=$(tty)
+notify_via_ntfy() {
+    local exit_status=$?  # Capture the exit status before doing anything else
+    local status_icon="$([ $exit_status -eq 0 ] && echo magic_wand || echo warning)"
+    local last_command=$(history | tail -n1 | sed -e 's/^[[:space:]]*[0-9]\{1,\}[[:space:]]*//' -e 's/[;&|][[:space:]]*alert$//')
+
+    curl -s -X POST "https://$NTFY" \
+        -H "Title: Terminal" \
+        -H "X-Priority: 3" \
+        -H "Tags: $status_icon" \
+        -d "Command: $last_command (Exit: $exit_status)"
+
+    echo "Tags: $status_icon"
+    echo "$last_command (Exit: $exit_status)"
+}
+
+# Add an "alert" alias for long running commands using ntfy.sh
+alias alert='notify_via_ntfy'
+
+export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
+export GPG_TTY=$(TTY)
