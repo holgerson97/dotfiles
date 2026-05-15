@@ -1,0 +1,26 @@
+alias vim="nvim"
+alias cat="bat"
+alias ls="ls -laHF --color"
+alias ll="ls -laHF --color"
+alias weather="curl wttr.in"
+alias ..="cd .."
+alias ctx="kubectl config use-context"
+
+alias gitops="cd ~/Documents/repositories/roclub/gitops/"
+alias gor="cd ~/go/src/github.com/roclub/"
+alias rr="cd ~/Documents/repositories/roclub/"
+
+source <(kubectl completion zsh)
+
+alias cls=clear
+alias k=kubectl
+alias ssh='TERM=xterm-256color \ssh'
+
+alias go@1.21="/opt/homebrew/opt/go@1.21/bin/go"
+alias go@1.22="/opt/homebrew/opt/go@1.22/bin/go"
+
+kgd() { kubectl get deployments -owide "$@"; }
+kgp() { kubectl get pods -owide "$@"; }
+kgs() { kubectl get service -owide "$@"; }
+kgi() { kubectl get ingress -owide "$@"; }
+kgn() { kubectl get nodes -owide "$@"; }

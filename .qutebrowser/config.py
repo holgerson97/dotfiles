@@ -13,6 +13,16 @@
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
 
+# Delete the QtWebEngine Service Worker directory on every start. This
+# workaround can help with certain crashes caused by an unknown
+# QtWebEngine bug related to Service Workers. Those crashes happen
+# seemingly immediately on Windows; after one hour of operation on other
+# systems. Note however that enabling this option *can lead to data
+# loss* on some pages (as Service Worker data isn't persisted) and will
+# negatively impact start-up time.
+# Type: Bool
+c.qt.workarounds.remove_service_workers = True
+
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
 # including IndexedDB, DOM storage, filesystem API, service workers, and
@@ -79,12 +89,13 @@ c.content.headers.do_not_track = True
 # QtWebEngine. * `{qt_version}`: The underlying Qt version. *
 # `{upstream_browser_key}`: "Version" for QtWebKit, "Chrome" for
 # QtWebEngine. * `{upstream_browser_version}`: The corresponding
-# Safari/Chrome version. * `{qutebrowser_version}`: The currently
-# running qutebrowser version.  The default value is equal to the
-# unchanged user agent of QtWebKit/QtWebEngine.  Note that the value
-# read from JavaScript is always the global value. With QtWebEngine
-# between 5.12 and 5.14 (inclusive), changing the value exposed to
-# JavaScript requires a restart.
+# Safari/Chrome version. * `{upstream_browser_version_short}`: The
+# corresponding Safari/Chrome   version, but only with its major
+# version. * `{qutebrowser_version}`: The currently running qutebrowser
+# version.  The default value is equal to the default user agent of
+# QtWebKit/QtWebEngine, but with the `QtWebEngine/...` part removed for
+# increased compatibility.  Note that the value read from JavaScript is
+# always the global value.
 # Type: FormatString
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
 
@@ -95,14 +106,32 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # QtWebEngine. * `{qt_version}`: The underlying Qt version. *
 # `{upstream_browser_key}`: "Version" for QtWebKit, "Chrome" for
 # QtWebEngine. * `{upstream_browser_version}`: The corresponding
-# Safari/Chrome version. * `{qutebrowser_version}`: The currently
-# running qutebrowser version.  The default value is equal to the
-# unchanged user agent of QtWebKit/QtWebEngine.  Note that the value
-# read from JavaScript is always the global value. With QtWebEngine
-# between 5.12 and 5.14 (inclusive), changing the value exposed to
-# JavaScript requires a restart.
+# Safari/Chrome version. * `{upstream_browser_version_short}`: The
+# corresponding Safari/Chrome   version, but only with its major
+# version. * `{qutebrowser_version}`: The currently running qutebrowser
+# version.  The default value is equal to the default user agent of
+# QtWebKit/QtWebEngine, but with the `QtWebEngine/...` part removed for
+# increased compatibility.  Note that the value read from JavaScript is
+# always the global value.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:133.0) Gecko/20100101 Firefox/133.0', 'https://accounts.google.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:144.0) Gecko/20100101 Firefox/144.0', 'https://accounts.google.com/*')
+
+# User agent to send.  The following placeholders are defined:  *
+# `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
+# The underlying WebKit version (set to a fixed value   with
+# QtWebEngine). * `{qt_key}`: "Qt" for QtWebKit, "QtWebEngine" for
+# QtWebEngine. * `{qt_version}`: The underlying Qt version. *
+# `{upstream_browser_key}`: "Version" for QtWebKit, "Chrome" for
+# QtWebEngine. * `{upstream_browser_version}`: The corresponding
+# Safari/Chrome version. * `{upstream_browser_version_short}`: The
+# corresponding Safari/Chrome   version, but only with its major
+# version. * `{qutebrowser_version}`: The currently running qutebrowser
+# version.  The default value is equal to the default user agent of
+# QtWebKit/QtWebEngine, but with the `QtWebEngine/...` part removed for
+# increased compatibility.  Note that the value read from JavaScript is
+# always the global value.
+# Type: FormatString
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}', 'https://gitlab.gnome.org/*')
 
 # Enable the ad/host blocker
 # Type: Bool
