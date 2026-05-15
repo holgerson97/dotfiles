@@ -4,7 +4,10 @@ alias ls="ls -laHF --color"
 alias ll="ls -laHF --color"
 alias weather="curl wttr.in"
 alias ..="cd .."
+<<<<<<< HEAD
 alias ctx="kubectl config use-context"
+=======
+>>>>>>> 3a3a0ac (stowing)
 
 alias gitops="cd ~/Documents/repositories/roclub/gitops/"
 alias gor="cd ~/go/src/github.com/roclub/"
@@ -14,7 +17,11 @@ source <(kubectl completion zsh)
 
 alias cls=clear
 alias k=kubectl
+<<<<<<< HEAD
 alias ssh='TERM=xterm-256color \ssh'
+=======
+alias k9s="k9s --logoless --crumbsless -c context"
+>>>>>>> 3a3a0ac (stowing)
 
 alias go@1.21="/opt/homebrew/opt/go@1.21/bin/go"
 alias go@1.22="/opt/homebrew/opt/go@1.22/bin/go"

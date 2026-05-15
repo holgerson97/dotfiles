@@ -106,3 +106,7 @@ alias alert='notify_via_ntfy'
 
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 export GPG_TTY=$(TTY)
+<<<<<<< HEAD
+=======
+source ~/.aliasrc
+>>>>>>> 3a3a0ac (stowing)
