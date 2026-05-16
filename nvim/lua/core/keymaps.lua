@@ -17,9 +17,7 @@ map(
   { desc = "telescope find all files" }
 )
 
--- LSP Config
-map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>', { desc = "Go to declaration" })
-map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Go to definition" })
+-- LSP Config (handled in lspconfig.lua on_attach)
 
 -- telescope cmdline
 map("n", "<leader><leader>", ':Telescope cmdline<CR>', { noremap = true, desc = "Cmdline" })

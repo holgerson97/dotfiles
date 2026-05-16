@@ -16,8 +16,19 @@ return {
         height = 'auto', 
         title_colors = 'nord', 
       },
+
+      lsp_cfg = true,
+      lsp_keymaps = false,
+      lsp_codelens = false,
+      lsp_inlay_hints = {
+        enable = false, -- this is the only field apply to neovim > 0.10
+      },
     })
 
+    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+    vim.keymap.set("n", "<leader>gD", vim.lsp.buf.type_definition)
+    vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation)
+    vim.keymap.set("n", "<leader>rn", require('go.rename').run)
     vim.keymap.set("n", "<leader>gtf", "<cmd>GoTestFunc<CR>")
     vim.keymap.set("n", "<leader>gtF", "<cmd>GoTestFile<CR>")
     vim.keymap.set("n", "<leader>gta", "<cmd>GoAltV<CR>")
