@@ -2,3 +2,16 @@
 .variables
 gcloud/
 raycast/
+wireshark/
+k3d/
+glide/
+argocd/
+containers/
+configstore/
+GNS3/
+**/.DS_Store
+.DS_Store
+
+*/k9s/screen-dumps/
+*/k9s/clusters/
+*/k9s/benchmarks/

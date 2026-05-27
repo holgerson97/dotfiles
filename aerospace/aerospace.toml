@@ -102,6 +102,9 @@ alt-shift-equal = 'resize smart +50'
 7 = 'workspace 7'
 8 = 'workspace 8'
 9 = 'workspace 9'
+s = 'workspace s'
+o = 'workspace o'
+q = 'workspace q'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 shift-1 = 'move-node-to-workspace 1'
@@ -113,6 +116,7 @@ shift-6 = 'move-node-to-workspace 6'
 shift-7 = 'move-node-to-workspace 7'
 shift-8 = 'move-node-to-workspace 8'
 shift-9 = 'move-node-to-workspace 9'
+shift-q = 'move-node-to-workspace q'
 
 ctrl-h = 'move-node-to-monitor --focus-follows-window left'
 ctrl-j = 'move-node-to-monitor --focus-follows-window down'
@@ -143,6 +147,10 @@ alt-shift-l = ['join-with right', 'mode main']
     run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
+    if.app-id = 'org.qutebrowser.qutebrowser'
+    run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
     if.app-id = 'org.alacritty'
     run = 'move-node-to-workspace 2'
 
@@ -152,6 +160,14 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
     if.app-id = 'md.obsidian'
-    run = 'move-node-to-workspace 3'
+    run = 'move-node-to-workspace o'
+
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.teams2'
+    run = 'move-node-to-workspace q'
+
+[[on-window-detected]]
+    if.app-id = 'com.spotify.client'
+    run = 'move-node-to-workspace s'
 
 

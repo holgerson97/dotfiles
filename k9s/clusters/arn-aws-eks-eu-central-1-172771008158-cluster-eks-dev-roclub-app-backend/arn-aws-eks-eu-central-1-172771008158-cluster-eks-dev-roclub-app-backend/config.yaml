@@ -1,0 +1,17 @@
+k9s:
+  cluster: arn:aws:eks:eu-central-1:172771008158:cluster/eks-dev-roclub-app-backend
+  namespace:
+    active: monitoring
+    lockFavorites: false
+    favorites:
+      - monitoring
+      - zitadel
+      - postgres-operator
+      - roclub-app
+      - all
+      - default
+  view:
+    active: servicemonitor
+  featureGates:
+    nodeShell: false
+  proxy: null
