@@ -14,3 +14,4 @@ function tmux_tpm() {
 
 install_brew
 tmux_tpm
+stow .

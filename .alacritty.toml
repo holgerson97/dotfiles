@@ -9,6 +9,8 @@ history = 10000
 padding.x = 10
 padding.y = 10
 
+opacity = 0.8
+blur = true
 decorations = "Buttonless"
 
 [colors]
@@ -58,5 +60,5 @@ bindings = [
 
 live_config_reload = true
 import = [
-    "~/.config/alacritty/themes/themes/deep_space.toml"
+    "~/$XDG_CONFIG_HOME/alacritty/themes/themes/deep_space.toml"
 ]

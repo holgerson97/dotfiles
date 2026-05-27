@@ -104,5 +104,8 @@ notify_via_ntfy() {
 # Add an "alert" alias for long running commands using ntfy.sh
 alias alert='notify_via_ntfy'
 
+export XDG_CONFIG_HOME=~/.dotfiles
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 export GPG_TTY=$(TTY)
+
+source ~/.aliasrc

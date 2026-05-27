@@ -58,3 +58,9 @@ opt.scrolloff = 8
 
 -- Required for Obsidian Plugin
 opt.conceallevel = 2
+
+opt.foldlevel = 99
+opt.foldlevelstart = 10
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
