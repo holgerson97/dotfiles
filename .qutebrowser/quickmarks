@@ -17,3 +17,4 @@ capi-crd https://doc.crds.dev/github.com/kubernetes-sigs/cluster-api
 capa-crd https://cluster-api-aws.sigs.k8s.io/crd/#infrastructure.cluster.x-k8s.io/v1beta1.AWSManagedMachinePoolSpec
 eks-bp https://simyung.github.io/aws-eks-best-practices/
 map_medal https://mapmedal.com/products/ironman-140-6-portugal-cascais-poster?variant=44575400132789
+VCs https://www.openvc.app/country/Germany
