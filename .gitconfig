@@ -2,8 +2,8 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Nils Carstensen
-	email = me@nils-carstensen.de
-	signingkey = 686914AF
+	email = 62931588+holgerson97@users.noreply.github.com
+	signingkey = C2F01245CD7C1B9A
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

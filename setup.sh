@@ -12,6 +12,28 @@ function tmux_tpm() {
   fi
 }
 
+function lua() {
+  mkdir -p ~/Documents/repositories/lua/
+  mkdir -p ~/Documents/repositories/luarocks/
+
+  pushd ~/Documents/repositories/lua/
+
+  wget https://www.lua.org/ftp/lua-5.1.5.tar.gz
+  tar xzf lua-5.1.5.tar.gz
+  cd lua-5.1.5
+  make macosx
+
+  mkdir /opt/lua/
+  mkdir -p ~/.local/bin
+
+  make INSTALL_TOP=/opt/lua install
+  ln -s /opt/lua/bin/lua ~/.local/bin/lua
+  popd
+}
+
 install_brew
 tmux_tpm
 stow .
+lua
+
+

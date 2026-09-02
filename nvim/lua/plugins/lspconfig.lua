@@ -89,13 +89,6 @@ return {
       end,
     })
 
-    vim.lsp.config("ruff", {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = {"python"},
-    })
-    vim.lsp.enable({"ruff"})
-
     -- setup helm-ls
     vim.lsp.config("helm_ls", {
       on_attach = on_attach,

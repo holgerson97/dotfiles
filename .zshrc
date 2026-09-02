@@ -60,11 +60,14 @@ setopt hist_find_no_dups
 [ -f ~/.config/.aliasrc ] && source ~/.config/.aliasrc
 [ -f ~/.config/.tmux_sessionrc ] && source ~/.config/.tmux_sessionrc
 
+export PATH=$PATH:~/go/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/bin/tailscale
+# TODO
+export PATH=~/.local/bin/:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Use GNU Sed instead of the MacOS preinstalled
@@ -107,5 +110,7 @@ alias alert='notify_via_ntfy'
 export XDG_CONFIG_HOME=~/.dotfiles
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 export GPG_TTY=$(TTY)
+
+export GOBIN=~/go/bin
 
 source ~/.aliasrc

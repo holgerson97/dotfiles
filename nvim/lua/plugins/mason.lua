@@ -31,6 +31,7 @@ return {
         "gopls",
         "lua_ls",
         "helm_ls",
+        "templ",
       },
     })
 

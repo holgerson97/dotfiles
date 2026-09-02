@@ -11,6 +11,9 @@ Aerospace is an i3 like tiling window manager exclusively for MacOS.
 The configuration features vim like bindings, working with multiple monitors
 and giving a complete HotKey-based workflow for mulitple workspaces.
 
+## MacOs Specific Instructions
+Tmux uses `Control + Space` this is overwritten by `System Settings -> Keyboard -> Keyboard Shortcuts -> Input Sources`.
+Deactivate the MacOs settings since who uses this anyways.
 
 ## Installation
 

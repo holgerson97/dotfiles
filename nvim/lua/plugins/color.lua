@@ -7,6 +7,10 @@ return {
       vim.cmd([[colorscheme catppuccin]])
       require("catppuccin").setup({
         flavour = "macchiato",
+        background = { -- :h background
+            light = "latte",
+            dark = "macchiato",
+        },
       })
     end,
 }
