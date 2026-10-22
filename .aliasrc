@@ -7,6 +7,7 @@ alias ..="cd .."
 
 alias gitops="cd ~/Documents/repositories/roclub/gitops/"
 alias gor="cd ~/go/src/github.com/roclub/"
+alias gog="cd ~/go/src/github.com/govaguard/"
 alias rr="cd ~/Documents/repositories/roclub/"
 
 source <(kubectl completion zsh)
