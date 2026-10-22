@@ -15,3 +15,6 @@ GNS3/
 */k9s/screen-dumps/
 */k9s/clusters/
 */k9s/benchmarks/
+helm/
+colima/
+homebrew/
