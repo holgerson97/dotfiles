@@ -3,7 +3,7 @@
 # Please adapt and uncomment the following lines:
 	name = Nils Carstensen
 	email = 62931588+holgerson97@users.noreply.github.com
-	signingkey = C2F01245CD7C1B9A
+	signingkey = C78E1F32EFEF4AF93100E92FC50373458CB96FE2
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -22,9 +22,9 @@
   # Same as above, but with a diff stat instead of just names
   # (better for interactive use)
   stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
-[inti]
-	defaultBranch = main
 [init]
 	defaultBranch = main
 [commit]
 	gpgsign = true
+[push]
+  autoRemoteSetup = true
