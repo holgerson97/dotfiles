@@ -109,7 +109,7 @@ alias alert='notify_via_ntfy'
 
 export XDG_CONFIG_HOME=~/.dotfiles
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
-export GPG_TTY=$(TTY)
+export GPG_TTY=$(tty)
 
 export GOBIN=~/go/bin
 export DOCKER_HOST="unix://${HOME}/.dotfiles/colima/default/docker.sock" \
