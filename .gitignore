@@ -18,3 +18,7 @@ GNS3/
 helm/
 colima/
 homebrew/
+
+.qutebrowser/cache/
+.qutebrowser/config/
+.qutebrowser/data/
