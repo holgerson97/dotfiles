@@ -18,3 +18,5 @@ capa-crd https://cluster-api-aws.sigs.k8s.io/crd/#infrastructure.cluster.x-k8s.i
 eks-bp https://simyung.github.io/aws-eks-best-practices/
 map_medal https://mapmedal.com/products/ironman-140-6-portugal-cascais-poster?variant=44575400132789
 VCs https://www.openvc.app/country/Germany
+to_read https://www.tigerdata.com/blog/select-the-most-recent-record-of-many-items-with-postgresql#the-impact-of-indexes
+to_read_2 https://github.com/microsoft/sarif-tutorials/blob/main/docs/2-Basics.md
