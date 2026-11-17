@@ -71,11 +71,6 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 #   - never: Don't accept cookies at all.
 config.set('content.cookies.accept', 'all', 'devtools://*')
 
-# Value to send in the `Accept-Language` header. Note that the value
-# read from JavaScript is always the global value.
-# Type: String
-config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io/*')
-
 # Value to send in the `DNT` header. When this is set to true,
 # qutebrowser asks websites to not track your identity. If set to null,
 # the DNT header is not sent at all.
@@ -133,14 +128,8 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:144.0) Geck
 # Type: FormatString
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}', 'https://gitlab.gnome.org/*')
 
-# Enable the ad/host blocker
-# Type: Bool
+c.content.autoplay = False
 c.content.blocking.enabled = True
-
-# Block subdomains of blocked hosts. Note: If only a single subdomain is
-# blocked but should be allowed, consider using
-# `content.blocking.whitelist` instead.
-# Type: Bool
 c.content.blocking.hosts.block_subdomains = True
 
 # Which method of blocking ads should be used.  Support for Adblock Plus
@@ -154,7 +143,9 @@ c.content.blocking.hosts.block_subdomains = True
 #   - adblock: Use Brave's ABP-style adblocker
 #   - hosts: Use hosts blocking
 #   - both: Use both hosts blocking and Brave's ABP-style adblocker
-c.content.blocking.method = 'auto'
+c.content.blocking.method = 'both'
+c.content.geolocation = False
+c.content.default_encoding = 'utf-8'
 
 # List of URLs to ABP-style adblocking rulesets.  Only used when Brave's
 # ABP-style adblocker is used (see `content.blocking.method`).  You can
@@ -210,30 +201,6 @@ config.set('content.local_content_can_access_remote_urls', True, 'file:///Users/
 # Allow locally loaded documents to access other local URLs.
 # Type: Bool
 config.set('content.local_content_can_access_file_urls', False, 'file:///Users/nilscarstensen/Library/Application%20Support/qutebrowser/userscripts/*')
-
-# Allow websites to record audio.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.media.audio_capture', True, 'https://teams.microsoft.com')
-
-# Allow websites to record audio and video.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.media.audio_video_capture', True, 'https://teams.microsoft.com')
-
-# Allow websites to record video.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.media.video_capture', True, 'https://teams.microsoft.com')
 
 # When to show favicons in the tab bar. When switching this from never
 # to always/pinned, note that favicons might not be loaded yet, thus
@@ -296,3 +263,16 @@ config.unbind('D')
 config.unbind('d')
 config.bind('tta', 'set tabs.show always')
 config.bind('tts', 'set tabs.show switching')
+
+c.url.start_pages = ["about:blank"]
+c.url.default_page = "about:blank"
+
+c.url.searchengines = {'DEFAULT': 'https://lite.qwant.com/?q={}'}
+
+c.content.pdfjs = True
+
+c.scrolling.bar = 'always'
+c.zoom.default = '100%'
+
+c.qt.force_software_rendering = 'chromium'
+

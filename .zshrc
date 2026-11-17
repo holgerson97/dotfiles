@@ -115,8 +115,5 @@ export GOBIN=~/go/bin
 export DOCKER_HOST="unix://${HOME}/.dotfiles/colima/default/docker.sock" \
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE="/var/run/docker.sock" \
 
-
 source ~/.aliasrc
-
-. "$HOME/.local/bin/env"
 export PATH=/opt/homebrew/opt/libpq/bin:$PATH
